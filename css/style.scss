@@ -1,0 +1,188 @@
+@import 'configs';
+
+*{
+    box-sizing: border-box;
+    font-family: $font-stack;
+}
+
+body{
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    position: relative;
+    background-color: $very-light-grayish-blue;
+}
+
+.top-right{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+}
+
+.bottom-left{
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+}
+
+.container{
+    max-width: 1368px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    h2{
+        font-size: 2rem;
+        color: $dark-grayish-blue;
+        opacity: 0.9;
+    }
+    .toggle-section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h5{
+            font-size: 0.95rem;
+            color: $grayish-blue;
+            opacity: 0.75;
+        }
+        input[type="checkbox"]{
+            margin: 0 1.5rem;
+            position: relative;
+            width: 60px;
+            height: 30px;
+            appearance: none;
+            background: linear-gradient(to right,hsl(237, 79%, 78%),hsl(237, 56%, 59%)) ;
+            border-radius: 20px;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+            transition: 0.5s ease all;
+            outline: none;
+            cursor: pointer;
+            &::before{
+                content: '';
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border-radius: 20px;
+                background-color: #fff;
+                top: 0;
+                left: 0;
+                transition: 0.5s ease all;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+                transform: scale(0.75);
+            }
+        }
+        input:checked[type="checkbox"]{
+            opacity: 0.5;
+            &::before{
+                left: 30px;
+            }
+        }
+    }
+    .cards{
+        margin-top: 4rem;
+        display: flex;
+        justify-content: center;
+        .card{
+            background-color: #fff;
+            padding: 1rem 1.5rem 2rem;
+            text-align: center;
+            width: 18rem;
+            border-radius: 10px;
+            color: $dark-grayish-blue;
+            box-shadow: 0 0 30px hsl(240, 36%, 88%);
+            h5{
+                font-size: 1rem;
+                margin-bottom: 0;
+            }
+            .price{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 1rem;
+                h4{
+                    margin-top: 0.5rem;
+                    font-size: 2rem;
+                    margin-right: 0.5rem;
+                    margin-bottom: 1rem;
+                }
+                h1{
+                    margin-top: 0;
+                    font-size: 3.5rem;
+                    margin-bottom: 1rem;
+                }
+            }
+            p{
+                border-top: 1px solid $light-grayish-blue;
+                margin-top: 0;
+                padding-top: 1rem;
+                font-size: 0.85rem;
+                font-weight: 600;
+                &:nth-of-type(3){
+                    border-bottom: 1px solid $light-grayish-blue;
+                    padding-bottom: 1rem;
+                }
+            }
+            button{
+                margin-top: 1rem;
+                width: 100%;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 0.6rem;
+                border-radius: 5px;
+                font-weight: 600;
+                letter-spacing: 1px;
+                background: linear-gradient($linear-gradient);
+                border: 2px solid hsl(237, 72%, 79%);
+                color: #fff;
+                &:hover{
+                    background: #fff;
+                    color: hsl(237, 63%, 64%);
+                    border: 2px solid hsl(237, 63%, 64%);
+                }
+            }
+        }
+        .card.middle{
+            background-image: linear-gradient(to right bottom, hsl(236, 72%, 79%),hsl(237, 63%, 64%));
+            color: #fff;
+            transform: scale(1.1);
+            button{
+                background: #fff;
+                border: 2px solid $light-grayish-blue;
+                color: hsl(237, 63%, 64%);
+                &:hover{
+                    color: $very-light-grayish-blue;
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}
+
+.attribution{
+    font-size: 0.75rem;
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem 1rem 2rem;
+    font-weight: 500;
+    a{
+        font-size: 0.9rem;
+    }
+}
+
+@media(max-width: 800px){
+    .container{
+        .cards{
+            margin-top: 3rem;
+            flex-direction: column;
+            align-items: center;
+            .card{
+                margin-bottom: 2rem;
+            }
+            .card.middle{
+                transform: scale(1);
+            }
+        }
+    }
+}
